@@ -41,7 +41,8 @@ g++
 libtool
 autoreconf
 tar
-touch"
+touch
+wget"
 
 for e in $exes; do
 	checkExe $e
