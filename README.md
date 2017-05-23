@@ -11,15 +11,15 @@ Required Packages
 
 You will need to install (e.g. via yum):
 
-*autoconf
-*gcc
-*gcc-c++
-*libjpeg-turbo-devel
-*libmcrypt-devel
-*libtool
-*make
-*mhash-devel
-*patch
+* autoconf
+* gcc
+* gcc-c++
+* libjpeg-turbo-devel
+* libmcrypt-devel
+* libtool
+* make
+* mhash-devel
+* patch
 
 Why create this script?
 -----------------------
