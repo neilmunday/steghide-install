@@ -20,6 +20,7 @@ You will need to install (e.g. via yum):
 * make
 * mhash-devel
 * patch
+* zlib-devel
 
 Why create this script?
 -----------------------
