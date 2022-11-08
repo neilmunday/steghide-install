@@ -12,6 +12,8 @@
 # ./install.sh path/to/install/to
 #
 
+set -e
+
 function die {
 	echo $1
 	exit 1
@@ -65,19 +67,20 @@ if [ -d steghide-${version} ]; then
 	rm -rf steghide-${version}
 fi
 
-tar xvfz steghide-${version}.tar.gz || die "untar failed"
+tar xvfz steghide-${version}.tar.gz
 
 cd steghide-${version}
 
-patch -p1 < ${basedir}/buildsystem.patch || die "buildsystem.patch failed"
-patch -Np1 -i ${basedir}/gcc-4.2.patch || die "gcc-4.2.patch failed"
-patch -Np1 -i ${basedir}/steghide-climits.patch || die "steghide-climits patch failed"
+patch -p1 < ${basedir}/buildsystem.patch
+patch -Np1 -i ${basedir}/gcc-4.2.patch
+patch -Np1 -i ${basedir}/steghide-climits.patch
+patch -p1 -i ${basedir}/steghide-gcc6.patch
 
 touch NEWS AUTHORS ChangeLog
 
 autoreconf -i
-./configure --prefix=$installdir || die "configure failed"
-make -j || die "make failed"
+./configure --prefix=$installdir
+make -j
 make install || die "make install failed"
 
 echo -e "\nFinished!\nTo use steghide, run ${installdir}/bin/steghide or update your \$PATH environment variable\n"
